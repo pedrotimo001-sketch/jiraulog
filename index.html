@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#b20d19" />
+  <title>JirauLog Web</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+</head>
+<body>
+  <div id="appShell">
+    <aside id="sidebar" class="sidebar">
+      <div class="brand">
+        <div class="brand-jirau">JIRAU</div>
+        <div class="brand-log">LOG</div>
+      </div>
+      <nav id="nav">
+        <button data-view="obras" class="nav active">Obras</button>
+        <button data-view="obra" class="nav">Tela da obra</button>
+        <button data-view="remessas" class="nav">Remessas</button>
+        <button data-view="movimentacoes" class="nav">Movimentações</button>
+        <button data-view="relatorios" class="nav">Relatórios</button>
+        <button data-view="config" class="nav">Configurações</button>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="avatar">PR</div>
+        <div><strong>Pedro Rubens</strong><small>Administrador</small></div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button id="menuBtn" class="icon mobile">☰</button>
+        <div>
+          <h1 id="pageTitle">Obras</h1>
+          <p id="pageSubtitle">Controle operacional de materiais</p>
+        </div>
+        <div class="top-actions">
+          <button id="saveBtn" class="btn ghost">Salvar</button>
+          <button id="backupBtn" class="btn ghost">Backup</button>
+          <button id="resetBtn" class="btn danger">Limpar demo</button>
+        </div>
+      </header>
+      <section id="content" class="content"></section>
+    </main>
+  </div>
+
+  <div id="drawerBackdrop" class="backdrop hidden"></div>
+  <aside id="drawer" class="drawer hidden"></aside>
+
+  <dialog id="dialog"><form method="dialog" class="dialog-card">
+    <div class="dialog-head"><h2 id="dialogTitle"></h2><button value="cancel" class="icon">×</button></div>
+    <div id="dialogBody"></div>
+  </form></dialog>
+
+  <input id="fileInput" type="file" hidden accept=".xlsx,.xls,.ods,.csv" />
+  <input id="restoreInput" type="file" hidden accept=".json" />
+  <script src="app.js"></script>
+</body>
+</html>
